@@ -84,3 +84,19 @@ export async function createTransaction(req, res) {
     res.status(500).json({ message: "Error creating transaction" });
   }
 }
+
+export async function getLast10TransactionsByUserId(req, res) {
+  try {
+    const { userId } = req.params;
+    const transactions = await sql`
+      SELECT * FROM transactions 
+      WHERE user_id = ${userId}
+      ORDER BY created_at DESC
+      LIMIT 10
+    `;
+    res.status(200).json(transactions);
+  } catch (error) {
+    console.error("Error fetching last 10 transactions:", error);
+    res.status(500).json({ message: "Error fetching last 10 transactions" });
+  }
+}
