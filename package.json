@@ -16,8 +16,10 @@
     "@neondatabase/serverless": "^1.0.1",
     "@upstash/ratelimit": "^2.0.5",
     "@upstash/redis": "^1.35.0",
+    "axios": "^1.10.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "openai": "^5.5.1"
   }
 }

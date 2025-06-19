@@ -5,6 +5,7 @@ import cors from "cors";
 import rateLimiter from "./middleware/rateLimiter.js";
 import transactionRoute from "./routes/transactionRoute.js";
 import { initDB } from "./config/db.js";
+import askAiRoute from "./routes/askAiRoute.js";
 
 dotenv.config();
 const app = express();
@@ -14,6 +15,7 @@ app.use(rateLimiter);
 
 app.use(express.json());
 app.use("/api/transactions", transactionRoute);
+app.use("/api/askAi", askAiRoute);
 const PORT = process.env.PORT || 8080;
 
 initDB().then(() => {
